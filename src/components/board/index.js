@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Cell from '../cell';
 
 class Board extends Component {
@@ -37,10 +38,10 @@ class Board extends Component {
                       hasMine={cell.get('hasMine')}
                       hasFlag={cell.get('hasFlag')}
                       isOpened={cell.get('isOpened')}
-                      isGameOver={this.props.isGameOver}
                       neighborMineCount={cell.get('neighborMineCount')}
                       onBlur={this.props.onMouseUp}
                       onFocus={this.props.onMouseDown}
+                      isGameOver={this.props.isGameOver}
                       onFlag={e => this.handleCellFlagged(e, cell)}
                       onClick={e => this.handleCellClicked(e, cell)}
                     />
@@ -62,6 +63,18 @@ Board.defaultProps = {
   mineCount: 10,
   columns: 9,
   rows: 9
+};
+
+Board.propTypes = {
+  rows: PropTypes.number,
+  columns: PropTypes.number,
+  mineCount: PropTypes.number,
+  hasWon: PropTypes.bool,
+  isTicking: PropTypes.bool,
+  isGameOver: PropTypes.bool,
+  onMouseUp: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  className: PropTypes.string
 };
 
 export default Board;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
@@ -34,11 +35,11 @@ class App extends Component {
     clearInterval(this[TASK]);
   }
 
-  handleCellFocus(_event, _cell) {
+  handleCellFocus(_event) {
     this.setState({ isOpening: true });
   }
 
-  handleCellBlur(_event, _cell) {
+  handleCellBlur(_event) {
     this.setState({ isOpening: false });
   }
 
@@ -97,6 +98,16 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  hasWon: PropTypes.bool,
+  isTicking: PropTypes.bool,
+  isGameOver: PropTypes.bool,
+  mineCount: PropTypes.number,
+  minesLeft: PropTypes.number,
+  timeSpent: PropTypes.number,
+  appActions: PropTypes.object
+};
 
 function mapStateToProps(state) {
   return {

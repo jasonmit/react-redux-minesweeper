@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Settings from '../../container-components/settings';
 import gearImage from './images/gear.svg';
@@ -13,7 +14,6 @@ class Toolbar extends Component {
       showSettings: false
     };
 
-    this.handleSettings = this.handleSettings.bind(this);
     this.handleSettings = this.handleSettings.bind(this);
   }
 
@@ -73,6 +73,16 @@ Toolbar.defaultProps = {
   isOpening: false,
   hasWon: false,
   timeSpent: 0
+};
+
+Toolbar.propTypes = {
+  onReset: PropTypes.func,
+  minesLeft: PropTypes.number,
+  hasWon: PropTypes.bool,
+  isTicking: PropTypes.bool,
+  isOpening: PropTypes.bool,
+  isGameOver: PropTypes.bool,
+  timeSpent: PropTypes.number
 };
 
 export default Toolbar;

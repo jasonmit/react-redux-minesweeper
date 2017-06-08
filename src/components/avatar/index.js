@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import winnerImage from './images/winner.svg';
 import restingImage from './images/resting.svg';
@@ -41,7 +42,19 @@ class Avatar extends Component {
 }
 
 Avatar.defaultProps = {
-  className: ''
+  className: '',
+  hasWon: false,
+  isOpening: false,
+  isGameOver: false,
+  onClick() {}
+};
+
+Avatar.propTypes = {
+  className: PropTypes.string,
+  hasWon: PropTypes.bool,
+  isOpening: PropTypes.bool,
+  isGameOver: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default Avatar;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
@@ -17,7 +18,7 @@ class Settings extends Component {
   }
 
   handleClose() {
-    this.props.onClose && this.props.onClose();
+    this.props.onClose();
   }
 
   render() {
@@ -62,5 +63,16 @@ function mapDispatchToProps(dispatch) {
     appActions: bindActionCreators(appActionCreators, dispatch)
   };
 }
+
+Settings.propTypes = {
+  difficulty: PropTypes.string,
+  appActions: PropTypes.object,
+  onClose: PropTypes.func,
+  isOpen: PropTypes.bool
+};
+
+Settings.defaultProps = {
+  onClose() {}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

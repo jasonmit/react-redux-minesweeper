@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
@@ -21,5 +22,9 @@ function mapDispatchToProps(dispatch) {
     boardActions: bindActionCreators(boardActionCreators, dispatch)
   };
 }
+
+BoardContainer.propTypes = {
+  boardActions: PropTypes.object
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardContainer);

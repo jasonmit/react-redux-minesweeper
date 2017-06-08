@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import bombImage from './images/bomb.svg';
 import flagImage from './images/flag.svg';
 import './styles.css';
@@ -12,7 +13,7 @@ class Cell extends Component {
   }
 
   handleFocus(event) {
-    !this.props.isOpened && this.props.onFocus && this.props.onFocus(event);
+    !this.props.isOpened && this.props.onFocus(event);
   }
 
   render() {
@@ -70,6 +71,17 @@ Cell.defaultProps = {
   onFocus() {},
   onClick() {},
   onFlag() {}
+};
+
+Cell.propTypes = {
+  hasFlag: PropTypes.bool,
+  hasMine: PropTypes.bool,
+  isOpened: PropTypes.bool,
+  neighborMineCount: PropTypes.number,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onClick: PropTypes.func,
+  onFlag: PropTypes.func
 };
 
 export default Cell;

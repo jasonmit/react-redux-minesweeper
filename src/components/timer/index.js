@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({ seconds }) => {
+function Timer({ seconds }) {
   let minutes = Math.floor(seconds / 60);
   let secondsFormat = seconds - minutes * 60 || 0;
 
@@ -9,4 +10,14 @@ export default ({ seconds }) => {
   }
 
   return <span className="timer">{minutes}:{secondsFormat}</span>;
+}
+
+Timer.defaultProps = {
+  seconds: 0
 };
+
+Timer.propTypes = {
+  seconds: PropTypes.number
+};
+
+export default Timer;
