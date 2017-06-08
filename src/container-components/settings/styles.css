@@ -1,0 +1,75 @@
+.settings {
+  width: 385px;
+  margin: 0 auto;
+  background: #f5f5f5;
+  border-radius: 2px;
+  padding: 2rem 1.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: #ddd;
+  border-left-color: #ddd;
+  border-right-color: #b1b1b1;
+  border-bottom-color: #b1b1b1;
+  box-shadow: 2px 3px 3px #e6e6e6;
+}
+
+.settings_transition {
+  opacity: 0.01;
+}
+
+.settings_transition.settings_transition-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.settings button.primary {
+  margin-top: 1.5rem;
+}
+
+.settings h2 {
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.settings__section {
+  text-align: left;
+}
+
+.settings__section h3 {
+  color: #6b6b6b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  border-bottom: #e6e6e6 solid 2px;
+}
+
+.settings__difficulty label {
+  display: block;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+}
+
+.settings__difficulty label input {
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0.5em;
+}
+
+.settings.modal__settings-enter {
+  top: 0;
+  opacity: 0.1;
+}
+
+.settings.modal__settings-enter-active {
+  top: 180px;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%,0);
+}
+
+.settings.modal__settings-leave {
+  top:-400px;
+}

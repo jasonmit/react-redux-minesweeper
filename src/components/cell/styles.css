@@ -1,0 +1,71 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-width: 1px;
+  margin: 1px;
+  border-style: solid;
+  background: #e6e6e6;
+  border-right-color: #cacaca;
+  border-bottom-color: #cacaca;
+  border-left-color: #ececec;
+  border-top-color: #ececec;
+  color: #989898;
+  user-select: none;
+  font-size: 13px;
+  vertical-align: top;
+  transition: background-color 200ms linear,
+              border-left-color 200ms linear,
+              border-right-color 200ms linear,
+              border-top-color 200ms linear,
+              border-bottom-color 200ms linear;
+  outline: none;
+  font-weight: 600;
+  text-shadow: 1px 1px 0px #fff;
+}
+
+.cell:not(.cell__opened):hover {
+  background: #f1f1f1;
+}
+
+.cell__opened {
+  background: #d6d6d6;
+  border-left-color: #c5c5c5;
+  border-right-color: #c5c5c5;
+  border-top-color: #c5c5c5;
+  border-bottom-color: #c5c5c5;
+  box-shadow: inset 1px 1px 4px #c5c5c5;
+}
+
+.cell__opened:hover {
+  background: #d6d6d6;
+}
+
+.cell__exploded {
+  background: #fff;
+  border-left-color: #d44444;
+  border-right-color: #d44444;
+  border-top-color: #d44444;
+  border-bottom-color: #d44444;
+  border-width: 2px;
+}
+
+.cell__exploded:hover {
+  background: #fff;
+}
+
+.cell__count-1 {
+  color: #1875f1;
+}
+
+.cell__count-2 {
+  color: #ff6200;
+}
+
+.cell__count-3 {
+  color: #ff2700;
+}
+
+.cell__count-4 {
+  color: purple;
+}
