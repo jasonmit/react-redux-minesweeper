@@ -23,7 +23,7 @@ export function openCell(cell) {
     }
 
     if (getState().get('isGameOver')) {
-      return dispatch({ type: types.NEW_GAME });
+      return dispatch({ type: types.CONFIGURE_ROUND });
     }
 
     /* first selection.  plant mines and notify mine planter to exclude `cell` */
@@ -47,7 +47,7 @@ export function openCell(cell) {
 
     if (cell.get('hasMine')) {
       dispatch({ type: types.OPEN_CELL, cell });
-      dispatch({ type: types.END_GAME });
+      dispatch({ type: types.STOP_ROUND });
     } else {
       reveal(cell, {
         board: getState().get('board')

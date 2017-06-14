@@ -9,27 +9,29 @@ function cellPosition(cell) {
 
 const initalState = Map({
   board: List(),
+  difficulty: 'medium',
+  isTicking: false,
+  hasWon: false,
   rows: 9,
   columns: 9,
-  difficulty: 'easy',
-  isTicking: false,
+  openCount: 0,
   timeSpent: 0,
-  hasWon: false,
   mineCount: 10,
   minesLeft: 10,
-  openCount: 0
+  gameCount: 0
 });
 
 export default (state = initalState, action) => {
   switch (action.type) {
-    case types.NEW_GAME:
+    case types.CONFIGURE_ROUND:
       return state
         .mergeDeep({
           isGameOver: false,
           minesLeft: state.get('mineCount'),
           hasWon: false,
           openCount: 0,
-          timeSpent: 0
+          timeSpent: 0,
+          gameCount: state.get('gameCount') + 1
         })
         .set(
           'board',
@@ -40,21 +42,21 @@ export default (state = initalState, action) => {
           })
         );
 
+    case types.STOP_ROUND:
+      return state.merge({
+        isTicking: false,
+        isGameOver: true
+      });
+
     case types.CHANGE_DIFFICULTY:
       return state.set('difficulty', action.difficulty);
 
-    case types.CHANGE_BOARD_DIMENSIONS:
+    case types.SET_BOARD_DIMENSIONS:
       return state.merge({
         isTicking: false,
         rows: action.rows,
         columns: action.columns,
         mineCount: action.mineCount
-      });
-
-    case types.END_GAME:
-      return state.merge({
-        isTicking: false,
-        isGameOver: true
       });
 
     case types.WINNER_WINNER_CHICKEN_DINNER:

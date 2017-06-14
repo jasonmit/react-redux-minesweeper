@@ -14,7 +14,7 @@ class Settings extends Component {
   }
 
   handleChange(difficulty) {
-    this.props.appActions.changeDifficulty(difficulty);
+    this.props.appActions.updateDifficulty(difficulty);
   }
 
   handleClose() {

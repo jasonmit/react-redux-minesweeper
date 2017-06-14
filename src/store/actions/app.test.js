@@ -14,7 +14,7 @@ describe('app actions', () => {
 
     expect(store.getActions()).to.deep.equal([
       {
-        type: types.NEW_GAME
+        type: types.CONFIGURE_ROUND
       }
     ]);
   });
@@ -25,7 +25,7 @@ describe('app actions', () => {
 
     expect(store.getActions()).to.deep.equal([
       {
-        type: types.END_GAME
+        type: types.STOP_ROUND
       }
     ]);
   });

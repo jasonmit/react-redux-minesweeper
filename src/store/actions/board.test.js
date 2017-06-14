@@ -26,7 +26,7 @@ describe('board actions', () => {
 
     expect(store.getActions()).to.deep.equal([
       {
-        type: types.NEW_GAME
+        type: types.CONFIGURE_ROUND
       }
     ]);
   });
@@ -57,7 +57,7 @@ describe('board actions', () => {
     });
 
     expect(result[1]).to.deep.equal({
-      type: types.END_GAME
+      type: types.STOP_ROUND
     });
   });
 
